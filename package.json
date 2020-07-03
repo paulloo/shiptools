@@ -1,0 +1,20 @@
+{
+  "name": "shiptools",
+  "version": "0.0.1",
+  "description": "船票通用javascript通用函数工具包",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "parcel index.html --no-source-maps",
+    "build": "parcel build main.js --out-dir ./ --out-file index.js --global shiptools --no-source-maps --experimental-scope-hoisting"
+  },
+  "author": "paul",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cgxqd/utilscore"
+  },
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^3.9.6"
+  }
+}
