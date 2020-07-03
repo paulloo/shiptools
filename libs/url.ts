@@ -1,5 +1,5 @@
-const { isObject, isString } = require('./types')
-const URLSearchParams = (param) => {
+import { isObject, isString } from './types'
+export const URLSearchParams = (param) => {
     if (isObject(param)) {
         return Object.keys(param).map(key => `${key}=${encodeURIComponent(JSON.stringify(param[key]))}`).join('&')
     } else if (isString(param)) {

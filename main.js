@@ -9,6 +9,4 @@ const shiptools = {
     version
 }
 
-console.log("shiptools: ", shiptools)
-
 module.exports = shiptools
