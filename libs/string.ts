@@ -1,3 +1,15 @@
+/**
+ * 根据位置,使用 * 遮蔽字符串
+ * @param {string} cc 
+ * @param {number} num1 
+ * @param {number} num2 
+ * @param {string} _mask 
+ * @example shiptools.mask('12398765432',3,7) // => "123****5432"
+ */ 
+export const mask = (cc, num1 = 0, num2 = 0, _mask = '*') => {
+  let reg = new RegExp(`\^\(\.\{${num1}\}\)\(\.\{${num2 - num1}\}\)\(\.${num2>=cc.length?'\?':'\+'}\)\$`);
+  return cc.replace(reg,($0,$1,$2,$3)=> $1+$2.replace(/./g,_mask)+$3) 
+}
 
 /**
  * 随机字符串
