@@ -11,7 +11,7 @@
   "author": "paul",
   "repository": {
     "type": "git",
-    "url": "http://nexus.17usoft.com/repository/npm-framework-1024-transfer/"
+    "url": "http://localhost:4873/"
   },
   "license": "ISC",
   "devDependencies": {
