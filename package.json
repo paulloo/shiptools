@@ -11,7 +11,7 @@
   "author": "paul",
   "repository": {
     "type": "git",
-    "url": "http://localhost:4873/"
+    "url": "http://nexus.17usoft.com/repository/npm-all/"
   },
   "license": "ISC",
   "devDependencies": {
