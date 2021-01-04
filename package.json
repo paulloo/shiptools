@@ -9,10 +9,6 @@
     "build": "parcel build main.js --out-dir ./ --out-file index.js --global shiptools --no-source-maps --experimental-scope-hoisting"
   },
   "author": "paul",
-  "repository": {
-    "type": "git",
-    "url": "http://nexus.17usoft.com/repository/npm-framework-1024-transfer/"
-  },
   "license": "ISC",
   "devDependencies": {
     "typescript": "^3.9.6"
