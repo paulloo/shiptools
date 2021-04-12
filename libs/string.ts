@@ -52,7 +52,7 @@ export function uuid(len = 8, radix = 16): string {
  * 转换JSON格式字符串为url拼接字符串
  * @param param JSON形式的参数字符串
  */
- export const transParams = (param) => {
+ export function transParams (param): string {
   console.log('enter transparam', param);
   let paramObj = JSON.parse(param);
   let paramStr = ''
