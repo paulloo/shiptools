@@ -1,6 +1,6 @@
 {
   "name": "shiptools",
-  "version": "0.0.12",
+  "version": "0.0.13",
   "description": "船票通用javascript通用函数工具包",
   "main": "index.js",
   "scripts": {
