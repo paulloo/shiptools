@@ -65,3 +65,10 @@ export function uuid(len = 8, radix = 16): string {
   console.log('transParams转换后的参数', paramStr);
   return paramStr;
 }
+
+// 转换为字符串
+export function toString(value) {
+  return '' + value;
+}
+
+// toString

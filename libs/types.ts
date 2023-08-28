@@ -79,3 +79,14 @@ export const isEmpty = (value) => {
     else if(isString(value)) return !value
 	else return value.toString().length == 0
 };
+
+export function isNaN(value) {
+    return value !== value;
+}
+
+// 深度比较
+export function isEqual(a, b) {
+    return JSON.stringify(a) === JSON.stringify(b);
+}
+
+// isEqual

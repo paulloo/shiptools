@@ -122,3 +122,10 @@ function enableBoundaryChecking(flag) {
     if (flag === void 0) { flag = true; }
     _boundaryCheckingState = flag;
 }
+
+export function toNumber(value) {
+    return +value;
+  }
+  
+
+// isNaN, toNumber
