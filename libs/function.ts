@@ -186,4 +186,28 @@ export function chunk(arr, size) {
     return result;
 }
 
+// 将多个数组或值连接成一个新数组
+export function concat() {
+    // 将传入的参数转换为数组
+    var args = Array.prototype.slice.call(arguments);
+    // 创建一个空数组用于存储结果
+    var result: any = [];
+    
+    // 遍历每个参数
+    for (var i = 0; i < args.length; i++) {
+      // 如果参数是一个数组，则将其元素添加到result数组中
+      if (Array.isArray(args[i])) {
+        for (var j = 0; j < args[i].length; j++) {
+          result.push(args[i][j]);
+        }
+      // 否则，将参数本身添加到result数组中
+      } else {
+        result.push(args[i]);
+      }
+    }
+    
+    // 返回结果数组
+    return result;
+}
+
 // assign, isFunction, minBy, cloneDeep, debounce, filter, map, forEach, remove, extend, difference, chunk
