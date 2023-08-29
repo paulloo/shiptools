@@ -91,7 +91,17 @@ export function minBy(array, iteratee) {
 
 // 对象深拷贝
 export function cloneDeep(obj) {
-    return JSON.parse(JSON.stringify(obj));
+	if (typeof obj !== 'object' || obj === null) {
+        return obj
+    }
+
+    const newObj = Array.isArray(obj) ? [] : {}
+
+    for (let key in obj) {
+        newObj[key] = cloneDeep(obj[key])
+    }
+
+    return newObj
 }
 
 // 删除数组中假值
@@ -136,8 +146,23 @@ export function remove(arr, func) {
 }
 
 // 合并对象(与assign类似)
-export function extend(obj1, obj2) {
-    return {...obj1, ...obj2};
+export function extend(target) {
+    var sources = Array.prototype.slice.call(arguments, 1);
+
+    // 遍历每个源对象
+    for (var i = 0; i < sources.length; i++) {
+      var src = sources[i];
+      if (!src) continue;
+  
+      // 遍历每个属性
+      for (var key in src) {
+        if (src.hasOwnProperty(key)) {
+          target[key] = src[key];
+        }
+      }
+    }
+  
+    return target;
 }
 
 // 使用值填充数组
