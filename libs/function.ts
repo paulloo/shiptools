@@ -21,8 +21,8 @@ export const debounceEnd = (fn, delay = 2000) => debounce(fn,delay,false)
  * @param {boolean} immediate true 表立即执行，false 表非立即执行
  */
 export const debounce = (fn, delay, immediate = false) => {
-	let timer = null;
-	let status = true;
+	let timer: number | undefined;
+	let status: boolean = true;
 	if (!immediate) return function () {
 		let args = arguments;
 		if (timer) clearTimeout(timer)
@@ -45,7 +45,7 @@ export const debounce = (fn, delay, immediate = false) => {
  * @param {number} delay 延迟执行毫秒数
  */
 export const throttle = (fn, delay) => {
-	let timer = null;
+	let timer: number | null;
 	return function () {
 		let args = arguments;
 		if (!timer) {
@@ -89,9 +89,26 @@ export function minBy(array, iteratee) {
     return array.reduce((min, cur) => iteratee(cur) < iteratee(min) ? cur : min, array[0]);
 }
 
-// 对象深拷贝
-export function cloneDeep(obj) {
-    return JSON.parse(JSON.stringify(obj));
+// 对象深拷贝: 解决循环引用问题
+export function cloneDeep(obj, hash = new WeakMap()) {
+    // 如果是null则不进行拷贝操作
+    if (obj === null) return obj;
+    if (obj instanceof Date) return new Date(obj);
+    if (obj instanceof RegExp) return new RegExp(obj);
+    // 如果是函数或者普通的值或者undefined的话则不需要深拷贝
+    if (typeof obj !== "object") return obj;
+    // 如是对象的话则进行深拷贝
+    if (hash.get(obj)) return hash.get(obj);
+    // 找到的是所属类原型上的constructor, 而原型上的 constructor指向的是当前类本身
+    let cloneObj = new obj.constructor();
+    hash.set(obj, cloneObj);
+    for (let key in obj) {
+      if (obj.hasOwnProperty(key)) {
+        // 递归拷贝
+        cloneObj[key] = cloneDeep(obj[key], hash);
+      }
+    }
+    return cloneObj;
 }
 
 // 删除数组中假值
@@ -136,8 +153,23 @@ export function remove(arr, func) {
 }
 
 // 合并对象(与assign类似)
-export function extend(obj1, obj2) {
-    return {...obj1, ...obj2};
+export function extend(target) {
+    var sources = Array.prototype.slice.call(arguments, 1);
+
+    // 遍历每个源对象
+    for (var i = 0; i < sources.length; i++) {
+      var src = sources[i];
+      if (!src) continue;
+  
+      // 遍历每个属性
+      for (var key in src) {
+        if (src.hasOwnProperty(key)) {
+          target[key] = src[key];
+        }
+      }
+    }
+  
+    return target;
 }
 
 // 使用值填充数组
@@ -158,6 +190,30 @@ export function chunk(arr, size) {
     var result: any = [];
     for(var i = 0; i < arr.length; i += size) 
         result.push(arr.slice(i, i + size));
+    return result;
+}
+
+// 将多个数组或值连接成一个新数组
+export function concat() {
+    // 将传入的参数转换为数组
+    var args = Array.prototype.slice.call(arguments);
+    // 创建一个空数组用于存储结果
+    var result: any = [];
+    
+    // 遍历每个参数
+    for (var i = 0; i < args.length; i++) {
+      // 如果参数是一个数组，则将其元素添加到result数组中
+      if (Array.isArray(args[i])) {
+        for (var j = 0; j < args[i].length; j++) {
+          result.push(args[i][j]);
+        }
+      // 否则，将参数本身添加到result数组中
+      } else {
+        result.push(args[i]);
+      }
+    }
+    
+    // 返回结果数组
     return result;
 }
 
