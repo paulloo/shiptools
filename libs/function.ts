@@ -21,8 +21,8 @@ export const debounceEnd = (fn, delay = 2000) => debounce(fn,delay,false)
  * @param {boolean} immediate true 表立即执行，false 表非立即执行
  */
 export const debounce = (fn, delay, immediate = false) => {
-	let timer = null;
-	let status = true;
+	let timer: number | undefined;
+	let status: boolean = true;
 	if (!immediate) return function () {
 		let args = arguments;
 		if (timer) clearTimeout(timer)
@@ -45,7 +45,7 @@ export const debounce = (fn, delay, immediate = false) => {
  * @param {number} delay 延迟执行毫秒数
  */
 export const throttle = (fn, delay) => {
-	let timer = null;
+	let timer: number | null;
 	return function () {
 		let args = arguments;
 		if (!timer) {
@@ -89,19 +89,26 @@ export function minBy(array, iteratee) {
     return array.reduce((min, cur) => iteratee(cur) < iteratee(min) ? cur : min, array[0]);
 }
 
-// 对象深拷贝
-export function cloneDeep(obj) {
-	if (typeof obj !== 'object' || obj === null) {
-        return obj
-    }
-
-    const newObj = Array.isArray(obj) ? [] : {}
-
+// 对象深拷贝: 解决循环引用问题
+export function cloneDeep(obj, hash = new WeakMap()) {
+    // 如果是null则不进行拷贝操作
+    if (obj === null) return obj;
+    if (obj instanceof Date) return new Date(obj);
+    if (obj instanceof RegExp) return new RegExp(obj);
+    // 如果是函数或者普通的值或者undefined的话则不需要深拷贝
+    if (typeof obj !== "object") return obj;
+    // 如是对象的话则进行深拷贝
+    if (hash.get(obj)) return hash.get(obj);
+    // 找到的是所属类原型上的constructor, 而原型上的 constructor指向的是当前类本身
+    let cloneObj = new obj.constructor();
+    hash.set(obj, cloneObj);
     for (let key in obj) {
-        newObj[key] = cloneDeep(obj[key])
+      if (obj.hasOwnProperty(key)) {
+        // 递归拷贝
+        cloneObj[key] = cloneDeep(obj[key], hash);
+      }
     }
-
-    return newObj
+    return cloneObj;
 }
 
 // 删除数组中假值
