@@ -7,7 +7,7 @@ function $parcel$export(e, n, v, s) {
   Object.defineProperty(e, n, {get: v, set: s, enumerable: true, configurable: true});
 }
 var $17e2a7c06afd6377$exports = {};
-$17e2a7c06afd6377$exports = JSON.parse('{"name":"shiptools","version":"0.1.16","description":"\u8239\u7968\u901A\u7528javascript\u901A\u7528\u51FD\u6570\u5DE5\u5177\u5305","main":"index.js","scripts":{"test":"parcel ./index.html","start":"parcel index.html","build":"cross-env NODE_ENV=production parcel build main.ts --dist-dir ./ --no-source-maps --no-scope-hoist"},"author":"paul","license":"ISC","devDependencies":{"@babel/core":"^7.24.6","@babel/plugin-transform-modules-umd":"^7.24.6","@babel/preset-env":"^7.24.6","cross-env":"^7.0.3","typescript":"^3.9.10","@parcel/config-default":"^2.12.0","@parcel/optimizer-esbuild":"^2.12.0","parcel":"^2.12.0"},"dependencies":{}}');
+$17e2a7c06afd6377$exports = JSON.parse('{"name":"shiptools","version":"0.1.17","description":"\u8239\u7968\u901A\u7528javascript\u901A\u7528\u51FD\u6570\u5DE5\u5177\u5305","main":"index.js","scripts":{"test":"parcel ./index.html","start":"parcel index.html","build":"cross-env NODE_ENV=production parcel build main.ts --dist-dir ./ --no-source-maps --no-scope-hoist"},"author":"paul","license":"ISC","devDependencies":{"@babel/core":"^7.24.6","@babel/plugin-transform-modules-umd":"^7.24.6","@babel/preset-env":"^7.24.6","cross-env":"^7.0.3","typescript":"^3.9.10","@parcel/config-default":"^2.12.0","@parcel/optimizer-esbuild":"^2.12.0","parcel":"^2.12.0"},"dependencies":{}}');
 
 
 var $a5b5b9aff663c50b$exports = {};
