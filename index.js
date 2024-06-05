@@ -1,1 +1,427 @@
-(function () {var q={};function s(e){return(s="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e})(e)}function B(e,r){var t=Object.keys(e);if(Object.getOwnPropertySymbols){var $=Object.getOwnPropertySymbols(e);r&&($=$.filter(function(r){return Object.getOwnPropertyDescriptor(e,r).enumerable})),t.push.apply(t,$)}return t}function k(e){for(var r=1;r<arguments.length;r++){var t=null!=arguments[r]?arguments[r]:{};r%2?B(Object(t),!0).forEach(function(r){G(e,r,t[r])}):Object.getOwnPropertyDescriptors?Object.defineProperties(e,Object.getOwnPropertyDescriptors(t)):B(Object(t)).forEach(function(r){Object.defineProperty(e,r,Object.getOwnPropertyDescriptor(t,r))})}return e}function G(e,r,t){return(r=H(r))in e?Object.defineProperty(e,r,{value:t,enumerable:!0,configurable:!0,writable:!0}):e[r]=t,e}function H(e){var r=I(e,"string");return"symbol"===s(r)?r:String(r)}function I(e,r){if("object"!==s(e)||null===e)return e;var t=e[Symbol.toPrimitive];if(void 0!==t){var $=t.call(e,r||"default");if("object"!==s($))return $;throw new TypeError("@@toPrimitive must return a primitive value.")}return("string"===r?String:Number)(e)}var J={};J={name:"shiptools",version:"0.0.15",description:"\u8239\u7968\u901A\u7528javascript\u901A\u7528\u51FD\u6570\u5DE5\u5177\u5305",main:"index.js",scripts:{test:"echo \"Error: no test specified\" && exit 1",start:"parcel index.html --no-source-maps",build:"parcel build main.js --out-dir ./ --out-file index.js --global shiptools --no-source-maps --experimental-scope-hoisting"},author:"paul",license:"ISC",devDependencies:{typescript:"^3.9.10"}};var i={};function C($,u){return void 0===u&&(u=12),+parseFloat($.toPrecision(u))}function g($){var u=$.toString().split(/[eE]/),t=(u[0].split(".")[1]||"").length-+(u[1]||0);return t>0?t:0}function l($){if(-1===$.toString().indexOf("e"))return Number($.toString().replace(".",""));var u=g($);return u>0?C($*Math.pow(10,u)):$}function v($){L&&($>Number.MAX_SAFE_INTEGER||$<Number.MIN_SAFE_INTEGER)&&console.warn($+" is beyond boundary when transfer to integer, the results may not be accurate")}function h($,u){for(var t=[],r=2;r<arguments.length;r++)t[r-2]=arguments[r];if(t.length>0)return h.apply(void 0,[h($,u),t[0]].concat(t.slice(1)));var e=l($),o=l(u),f=g($)+g(u),n=e*o;return v(n),n/Math.pow(10,f)}function w($,u){for(var t=[],r=2;r<arguments.length;r++)t[r-2]=arguments[r];for(var e=[],o=2;o<arguments.length;o++)e[o-2]=arguments[o];if(e.length>0)return w.apply(void 0,[w($,u),e[0]].concat(e.slice(1)));var f=Math.pow(10,Math.max(g($),g(u)));return(h($,f)+h(u,f))/f}function x($,u){for(var t=[],r=2;r<arguments.length;r++)t[r-2]=arguments[r];for(var e=[],o=2;o<arguments.length;o++)e[o-2]=arguments[o];if(e.length>0)return x.apply(void 0,[x($,u),e[0]].concat(e.slice(1)));var f=Math.pow(10,Math.max(g($),g(u)));return(h($,f)-h(u,f))/f}function p($,u){for(var t=[],r=2;r<arguments.length;r++)t[r-2]=arguments[r];if(t.length>0)return p.apply(void 0,[p($,u),t[0]].concat(t.slice(1)));var e=l($),o=l(u);return v(e),v(o),h(e/o,C(Math.pow(10,g(u)-g($))))}function K($,u){var t=Math.pow(10,u);return p(Math.round(h($,t)),t)}i.float2Fixed=l,i.mulNum=h,i.addNum=w,i.subNum=x,i.divNum=p,i.round=K;var L=!0;function M($){return+$}i.toNumber=M;var b={},D=b&&b.__assign||function(){return(D=Object.assign||function(e){for(var $,t=1,r=arguments.length;t<r;t++)for(var n in $=arguments[t])Object.prototype.hasOwnProperty.call($,n)&&(e[n]=$[n]);return e}).apply(this,arguments)},N=function(e,$){return void 0===$&&($=2e3),y(e,$,!0)};b.debounceStart=N;var O=function(e,$){return void 0===$&&($=2e3),y(e,$,!1)};b.debounceEnd=O;var y=function(e,$,t){void 0===t&&(t=!1);var r=null,n=!0;return t?function(){clearTimeout(r),n&&(n=!1,e.call(this,arguments)),r=setTimeout(function(){return n=!0},$)}:function(){var t=this,n=arguments;r&&clearTimeout(r),r=setTimeout(function(){return e.apply(t,n)},$)}};b.debounce=y;var P=function(e,$){var t=null;return function(){var r=this,n=arguments;t||(t=setTimeout(function(){t=null,e.apply(r,n)},$))}};function Q(e,$){for(var t in $)$.hasOwnProperty(t)&&(e[t]=$[t]);return e}function R(e){return Object.keys(e)}function S(e){return Object.values(e)}function T(e){return Array.from(new Set(e))}function U(e,$){return e.reduce(function(e,t){return $(t)<$(e)?t:e},e[0])}function V(e){return JSON.parse(JSON.stringify(e))}function W(e){return e.filter(Boolean)}function X(e,$){for(var t=0;t<e.length;t++)if($(e[t]))return t;return-1}function Y(e,$){return e.reduce(function(e,t){return e.find(function(e){return $(t,e)})?e:e.concat([t])},[])}function Z(e,$){return e.filter($)}function _(e,$){return e.map($)}function aa(e,$){e.forEach($)}function ba(e,$){return e.filter(function(e){return!$(e)})}function ca(e,$){return D(D({},e),$)}function da(e,$,t,r){void 0===t&&(t=0),void 0===r&&(r=e.length);for(var n=t;n<r;n++)e[n]=$;return e}function ea(e,$){return e.filter(function(e){return!$.includes(e)})}function fa(e,$){for(var t=[],r=0;r<e.length;r+=$)t.push(e.slice(r,r+$));return t}b.throttle=P,b.assign=Q,b.keys=R,b.values=S,b.uniq=T,b.minBy=U,b.cloneDeep=V,b.compact=W,b.findIndex=X,b.uniqWith=Y,b.filter=Z,b.map=_,b.forEach=aa,b.remove=ba,b.extend=ca,b.fill=da,b.difference=ea,b.chunk=fa;var E={};var d={},j=function($){return Object.prototype.toString.call($)},ga=function($){return"[object Null]"==j($)};d.isNull=ga;var ha=function($){return void 0===$};d.isUndefined=ha;var ia=function($){return"boolean"==typeof $};d.isBoolean=ia;var ja=function($){return"number"==typeof $};d.isNumber=ja;var z=function($){return"string"==typeof $};d.isString=z;var ka=function($){return"[object Symbol]"==j($)};d.isSymbol=ka;var A=function($){return"[object Object]"==j($)};d.isObject=A;var la=function($){return"[object RegExp]"==j($)};d.isRegExp=la;var F=function($){return"[object Array]"==j($)};d.isArray=F;var ma=function($){return"[object Function]"==j($)};d.isFunction=ma;var na=function($){return j($).match(/\s([a-z]+)/i)[1].toLocaleLowerCase()};d.getType=na;var oa=function($){return null==$||(A($)?!Object.keys($).length:F($)?!$.length:z($)?!$:0==$.toString().length)};function pa($){return $!=$}function qa($,t){return JSON.stringify($)===JSON.stringify(t)}d.isEmpty=oa,d.isNaN=pa,d.isEqual=qa;var ra=function(r){if(A(r))return Object.keys(r).map(function(e){return e+"="+encodeURIComponent(JSON.stringify(r[e]))}).join("&");if(z(r)){var e={},a=r.match(/(([^&?]+)=([^&]*)?)/gi);return a&&a.forEach(function(r){var a=decodeURIComponent(r).replace(/=/,"|").split("|");try{e[a[0]]=JSON.parse(decodeURIComponent(a[1]))}catch(c){try{e[a[0]]=decodeURIComponent(a[1])}catch(c){try{e[a[0]]=JSON.parse(a[1])}catch(c){e[a[0]]=a[1]}}}}),e}};E.URLSearchParams=ra;var m={},sa=function(r,o,t,e){void 0===o&&(o=0),void 0===t&&(t=0),void 0===e&&(e="*");var n=new RegExp("^(.{"+o+"})(.{"+(t-o)+"})(."+(t>=r.length?"?":"+")+")$");return r.replace(n,function(r,o,t,n){return o+t.replace(/./g,e)+n})};function ta(r,o){void 0===r&&(r=8),void 0===o&&(o=16);var t="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz".split(""),e=[],n=0;if(o=o||t.length,r)for(n=0;n<r;n++)e[n]=t[0|Math.random()*o];else{var $=void 0;for(e[8]=e[13]=e[18]=e[23]="-",e[14]="4",n=0;n<36;n++)e[n]||($=0|16*Math.random(),e[n]=t[19===n?3&$|8:$])}return e.join("")}function ua(r){console.log("enter transparam",r);var o=JSON.parse(r),t="";for(var e in o)if(o.hasOwnProperty(e)){var n=o[e];t=t+(t.length>0?"&":"?")+e+"="+n}return console.log("transParams\u8F6C\u6362\u540E\u7684\u53C2\u6570",t),t}function va(r){return""+r}m.mask=sa,m.uuid=ta,m.transParams=ua,m.toString=va;var wa=k(k(k(k(k(k({},i),E),b),m),d),{},{version:J.version});q=wa;if(typeof exports==="object"&&typeof module!=="undefined"){module.exports=q}else if(typeof define==="function"&&define.amd){define(function(){return q})}else{this["shiptools"]=q}})();
+
+function $parcel$interopDefault(a) {
+  return a && a.__esModule ? a.default : a;
+}
+
+function $parcel$defineInteropFlag(a) {
+  Object.defineProperty(a, '__esModule', {value: true, configurable: true});
+}
+
+function $parcel$export(e, n, v, s) {
+  Object.defineProperty(e, n, {get: v, set: s, enumerable: true, configurable: true});
+}
+
+$parcel$defineInteropFlag(module.exports);
+
+$parcel$export(module.exports, "default", () => $8d7a97033b427055$export$2e2bcd8739ae039);
+var $17e2a7c06afd6377$exports = {};
+$17e2a7c06afd6377$exports = JSON.parse('{"name":"shiptools","version":"0.1.16","description":"\u8239\u7968\u901A\u7528javascript\u901A\u7528\u51FD\u6570\u5DE5\u5177\u5305","main":"index.js","scripts":{"test":"parcel ./index.html","start":"parcel index.html","build":"parcel build main.ts --dist-dir ./ --no-source-maps --no-scope-hoist"},"author":"paul","license":"ISC","devDependencies":{"@babel/core":"^7.24.6","@babel/plugin-transform-modules-umd":"^7.24.6","@babel/preset-env":"^7.24.6","typescript":"^3.9.10"},"dependencies":{"@parcel/config-default":"^2.12.0","@parcel/optimizer-esbuild":"^2.12.0","parcel":"^2.12.0"}}');
+
+
+var $a5b5b9aff663c50b$exports = {};
+
+$parcel$export($a5b5b9aff663c50b$exports, "float2Fixed", () => $a5b5b9aff663c50b$export$35b7f04c14dd97a6);
+$parcel$export($a5b5b9aff663c50b$exports, "mulNum", () => $a5b5b9aff663c50b$export$2a6fcc3e001c02db);
+$parcel$export($a5b5b9aff663c50b$exports, "addNum", () => $a5b5b9aff663c50b$export$9d96effffc876a42);
+$parcel$export($a5b5b9aff663c50b$exports, "subNum", () => $a5b5b9aff663c50b$export$e688fd2685be7b82);
+$parcel$export($a5b5b9aff663c50b$exports, "divNum", () => $a5b5b9aff663c50b$export$eb3c2837238da4f1);
+$parcel$export($a5b5b9aff663c50b$exports, "round", () => $a5b5b9aff663c50b$export$2077e0241d6afd3c);
+$parcel$export($a5b5b9aff663c50b$exports, "toNumber", () => $a5b5b9aff663c50b$export$a0a81dc3380ce7d3);
+/**
+ * @desc 解决浮动运算问题，避免小数点后产生多位数和计算精度损失。
+ * 问题示例：2.3 + 2.4 = 4.699999999999999，1.0 - 0.9 = 0.09999999999999998
+ */ /**
+ * 把错误的数据转正
+ * strip(0.09999999999999998)=0.1
+ */ function $a5b5b9aff663c50b$var$strip(num, precision) {
+    if (precision === void 0) precision = 12;
+    return +parseFloat(num.toPrecision(precision));
+}
+/**
+ * Return digits length of a number
+ * @param {*number} num Input number
+ */ function $a5b5b9aff663c50b$var$digitLength(num) {
+    // Get digit length of e
+    var eSplit = num.toString().split(/[eE]/);
+    var len = (eSplit[0].split(".")[1] || "").length - +(eSplit[1] || 0);
+    return len > 0 ? len : 0;
+}
+function $a5b5b9aff663c50b$export$35b7f04c14dd97a6(num) {
+    if (num.toString().indexOf("e") === -1) return Number(num.toString().replace(".", ""));
+    var dLen = $a5b5b9aff663c50b$var$digitLength(num);
+    return dLen > 0 ? $a5b5b9aff663c50b$var$strip(num * Math.pow(10, dLen)) : num;
+}
+/**
+ * 检测数字是否越界，如果越界给出提示
+ * @param {*number} num 输入数
+ */ function $a5b5b9aff663c50b$var$checkBoundary(num) {
+    if ($a5b5b9aff663c50b$var$_boundaryCheckingState) {
+        if (num > Number.MAX_SAFE_INTEGER || num < Number.MIN_SAFE_INTEGER) console.warn(num + " is beyond boundary when transfer to integer, the results may not be accurate");
+    }
+}
+function $a5b5b9aff663c50b$export$2a6fcc3e001c02db(num1, num2) {
+    var others = [];
+    for(var _i = 2; _i < arguments.length; _i++)others[_i - 2] = arguments[_i];
+    if (others.length > 0) return $a5b5b9aff663c50b$export$2a6fcc3e001c02db.apply(void 0, [
+        $a5b5b9aff663c50b$export$2a6fcc3e001c02db(num1, num2),
+        others[0]
+    ].concat(others.slice(1)));
+    var num1Changed = $a5b5b9aff663c50b$export$35b7f04c14dd97a6(num1);
+    var num2Changed = $a5b5b9aff663c50b$export$35b7f04c14dd97a6(num2);
+    var baseNum = $a5b5b9aff663c50b$var$digitLength(num1) + $a5b5b9aff663c50b$var$digitLength(num2);
+    var leftValue = num1Changed * num2Changed;
+    $a5b5b9aff663c50b$var$checkBoundary(leftValue);
+    return leftValue / Math.pow(10, baseNum);
+}
+function $a5b5b9aff663c50b$export$9d96effffc876a42(num1, num2, ...num3) {
+    var others = [];
+    for(var _i = 2; _i < arguments.length; _i++)others[_i - 2] = arguments[_i];
+    if (others.length > 0) return $a5b5b9aff663c50b$export$9d96effffc876a42.apply(void 0, [
+        $a5b5b9aff663c50b$export$9d96effffc876a42(num1, num2),
+        others[0]
+    ].concat(others.slice(1)));
+    var baseNum = Math.pow(10, Math.max($a5b5b9aff663c50b$var$digitLength(num1), $a5b5b9aff663c50b$var$digitLength(num2)));
+    return ($a5b5b9aff663c50b$export$2a6fcc3e001c02db(num1, baseNum) + $a5b5b9aff663c50b$export$2a6fcc3e001c02db(num2, baseNum)) / baseNum;
+}
+function $a5b5b9aff663c50b$export$e688fd2685be7b82(num1, num2, ...num3) {
+    var others = [];
+    for(var _i = 2; _i < arguments.length; _i++)others[_i - 2] = arguments[_i];
+    if (others.length > 0) return $a5b5b9aff663c50b$export$e688fd2685be7b82.apply(void 0, [
+        $a5b5b9aff663c50b$export$e688fd2685be7b82(num1, num2),
+        others[0]
+    ].concat(others.slice(1)));
+    var baseNum = Math.pow(10, Math.max($a5b5b9aff663c50b$var$digitLength(num1), $a5b5b9aff663c50b$var$digitLength(num2)));
+    return ($a5b5b9aff663c50b$export$2a6fcc3e001c02db(num1, baseNum) - $a5b5b9aff663c50b$export$2a6fcc3e001c02db(num2, baseNum)) / baseNum;
+}
+function $a5b5b9aff663c50b$export$eb3c2837238da4f1(num1, num2) {
+    var others = [];
+    for(var _i = 2; _i < arguments.length; _i++)others[_i - 2] = arguments[_i];
+    if (others.length > 0) return $a5b5b9aff663c50b$export$eb3c2837238da4f1.apply(void 0, [
+        $a5b5b9aff663c50b$export$eb3c2837238da4f1(num1, num2),
+        others[0]
+    ].concat(others.slice(1)));
+    var num1Changed = $a5b5b9aff663c50b$export$35b7f04c14dd97a6(num1);
+    var num2Changed = $a5b5b9aff663c50b$export$35b7f04c14dd97a6(num2);
+    $a5b5b9aff663c50b$var$checkBoundary(num1Changed);
+    $a5b5b9aff663c50b$var$checkBoundary(num2Changed);
+    // fix: 类似 10 ** -4 为 0.00009999999999999999，strip 修正
+    return $a5b5b9aff663c50b$export$2a6fcc3e001c02db(num1Changed / num2Changed, $a5b5b9aff663c50b$var$strip(Math.pow(10, $a5b5b9aff663c50b$var$digitLength(num2) - $a5b5b9aff663c50b$var$digitLength(num1))));
+}
+function $a5b5b9aff663c50b$export$2077e0241d6afd3c(num, ratio) {
+    var base = Math.pow(10, ratio);
+    return $a5b5b9aff663c50b$export$eb3c2837238da4f1(Math.round($a5b5b9aff663c50b$export$2a6fcc3e001c02db(num, base)), base);
+}
+var $a5b5b9aff663c50b$var$_boundaryCheckingState = true;
+/**
+ * 是否进行边界检查，默认开启
+ * @param flag 标记开关，true 为开启，false 为关闭，默认为 true
+ */ function $a5b5b9aff663c50b$var$enableBoundaryChecking(flag) {
+    if (flag === void 0) flag = true;
+    $a5b5b9aff663c50b$var$_boundaryCheckingState = flag;
+}
+function $a5b5b9aff663c50b$export$a0a81dc3380ce7d3(value) {
+    return +value;
+} // isNaN, toNumber
+
+
+var $88e54ddf303fb709$exports = {};
+
+$parcel$export($88e54ddf303fb709$exports, "debounceStart", () => $88e54ddf303fb709$export$be60dbd3deb25b04);
+$parcel$export($88e54ddf303fb709$exports, "debounce", () => $88e54ddf303fb709$export$61fc7d43ac8f84b0);
+$parcel$export($88e54ddf303fb709$exports, "debounceEnd", () => $88e54ddf303fb709$export$d807ae104ee9b59e);
+$parcel$export($88e54ddf303fb709$exports, "throttle", () => $88e54ddf303fb709$export$de363e709c412c8a);
+$parcel$export($88e54ddf303fb709$exports, "assign", () => $88e54ddf303fb709$export$e6e34fd1f2686227);
+$parcel$export($88e54ddf303fb709$exports, "keys", () => $88e54ddf303fb709$export$ed97f33186d4b816);
+$parcel$export($88e54ddf303fb709$exports, "values", () => $88e54ddf303fb709$export$68c286be0e7e55b7);
+$parcel$export($88e54ddf303fb709$exports, "uniq", () => $88e54ddf303fb709$export$f70730c3d1fc524e);
+$parcel$export($88e54ddf303fb709$exports, "minBy", () => $88e54ddf303fb709$export$8c826aa0fa59ac68);
+$parcel$export($88e54ddf303fb709$exports, "cloneDeep", () => $88e54ddf303fb709$export$629a2bd3f5a49ecc);
+$parcel$export($88e54ddf303fb709$exports, "compact", () => $88e54ddf303fb709$export$8e16b83750b44988);
+$parcel$export($88e54ddf303fb709$exports, "findIndex", () => $88e54ddf303fb709$export$de3a4d4a0d731119);
+$parcel$export($88e54ddf303fb709$exports, "uniqWith", () => $88e54ddf303fb709$export$959b75e301023b5e);
+$parcel$export($88e54ddf303fb709$exports, "filter", () => $88e54ddf303fb709$export$3dea766d36a8935f);
+$parcel$export($88e54ddf303fb709$exports, "map", () => $88e54ddf303fb709$export$871de8747c9eaa88);
+$parcel$export($88e54ddf303fb709$exports, "forEach", () => $88e54ddf303fb709$export$4b80e395e36b5a56);
+$parcel$export($88e54ddf303fb709$exports, "remove", () => $88e54ddf303fb709$export$cd7f480d6b8286c3);
+$parcel$export($88e54ddf303fb709$exports, "extend", () => $88e54ddf303fb709$export$8b58be045bf06082);
+$parcel$export($88e54ddf303fb709$exports, "fill", () => $88e54ddf303fb709$export$9563e054e6f787fb);
+$parcel$export($88e54ddf303fb709$exports, "difference", () => $88e54ddf303fb709$export$acaf96a27438246b);
+$parcel$export($88e54ddf303fb709$exports, "chunk", () => $88e54ddf303fb709$export$5f7ec48d69707ddd);
+$parcel$export($88e54ddf303fb709$exports, "concat", () => $88e54ddf303fb709$export$ee1b3e54f0441b22);
+/**
+ * 函数防抖 (立即执行版)
+ * @param {function} fn 函数
+ * @param {number} delay 延迟执行毫秒数
+ */ const $88e54ddf303fb709$export$be60dbd3deb25b04 = (fn, delay = 2000)=>$88e54ddf303fb709$export$61fc7d43ac8f84b0(fn, delay, true);
+const $88e54ddf303fb709$export$d807ae104ee9b59e = (fn, delay = 2000)=>$88e54ddf303fb709$export$61fc7d43ac8f84b0(fn, delay, false);
+const $88e54ddf303fb709$export$61fc7d43ac8f84b0 = (fn, delay, immediate = false)=>{
+    let timer;
+    let status = true;
+    if (!immediate) return function() {
+        let args = arguments;
+        if (timer) clearTimeout(timer);
+        timer = setTimeout(()=>fn.apply(this, args), delay);
+    };
+    else return function() {
+        clearTimeout(timer);
+        if (status) {
+            status = false;
+            fn.call(this, arguments);
+        }
+        timer = setTimeout(()=>status = true, delay);
+    };
+};
+const $88e54ddf303fb709$export$de363e709c412c8a = (fn, delay)=>{
+    let timer;
+    return function() {
+        let args = arguments;
+        if (!timer) timer = setTimeout(()=>{
+            timer = null;
+            fn.apply(this, args);
+        }, delay);
+    };
+};
+function $88e54ddf303fb709$export$e6e34fd1f2686227(obj, source) {
+    for(var key in source)if (source.hasOwnProperty(key)) obj[key] = source[key];
+    return obj;
+}
+function $88e54ddf303fb709$export$ed97f33186d4b816(obj) {
+    return Object.keys(obj);
+}
+function $88e54ddf303fb709$export$68c286be0e7e55b7(obj) {
+    return Object.values(obj);
+}
+function $88e54ddf303fb709$export$f70730c3d1fc524e(array) {
+    return Array.from(new Set(array));
+}
+function $88e54ddf303fb709$export$8c826aa0fa59ac68(array, iteratee) {
+    return array.reduce((min, cur)=>iteratee(cur) < iteratee(min) ? cur : min, array[0]);
+}
+function $88e54ddf303fb709$export$629a2bd3f5a49ecc(obj, hash = new WeakMap()) {
+    // 如果是null则不进行拷贝操作
+    if (obj === null) return obj;
+    if (obj instanceof Date) return new Date(obj);
+    if (obj instanceof RegExp) return new RegExp(obj);
+    // 如果是函数或者普通的值或者undefined的话则不需要深拷贝
+    if (typeof obj !== "object") return obj;
+    // 如是对象的话则进行深拷贝
+    if (hash.get(obj)) return hash.get(obj);
+    // 找到的是所属类原型上的constructor, 而原型上的 constructor指向的是当前类本身
+    let cloneObj = new obj.constructor();
+    hash.set(obj, cloneObj);
+    for(let key in obj)if (obj.hasOwnProperty(key)) // 递归拷贝
+    cloneObj[key] = $88e54ddf303fb709$export$629a2bd3f5a49ecc(obj[key], hash);
+    return cloneObj;
+}
+function $88e54ddf303fb709$export$8e16b83750b44988(array) {
+    return array.filter(Boolean);
+}
+function $88e54ddf303fb709$export$de3a4d4a0d731119(array, predicate) {
+    for(let i = 0; i < array.length; i++){
+        if (predicate(array[i])) return i;
+    }
+    return -1;
+}
+function $88e54ddf303fb709$export$959b75e301023b5e(array, comparator) {
+    return array.reduce((acc, current)=>{
+        const x = acc.find((item)=>comparator(current, item));
+        if (!x) return acc.concat([
+            current
+        ]);
+        else return acc;
+    }, []);
+}
+function $88e54ddf303fb709$export$3dea766d36a8935f(arr, func) {
+    return arr.filter(func);
+}
+function $88e54ddf303fb709$export$871de8747c9eaa88(arr, func) {
+    return arr.map(func);
+}
+function $88e54ddf303fb709$export$4b80e395e36b5a56(arr, func) {
+    arr.forEach(func);
+}
+function $88e54ddf303fb709$export$cd7f480d6b8286c3(arr, func) {
+    return arr.filter((v)=>!func(v));
+}
+function $88e54ddf303fb709$export$8b58be045bf06082(target) {
+    var sources = Array.prototype.slice.call(arguments, 1);
+    // 遍历每个源对象
+    for(var i = 0; i < sources.length; i++){
+        var src = sources[i];
+        if (!src) continue;
+        // 遍历每个属性
+        for(var key in src)if (src.hasOwnProperty(key)) target[key] = src[key];
+    }
+    return target;
+}
+function $88e54ddf303fb709$export$9563e054e6f787fb(arr, value, start = 0, end = arr.length) {
+    for(let i = start; i < end; i++)arr[i] = value;
+    return arr;
+}
+function $88e54ddf303fb709$export$acaf96a27438246b(arr1, arr2) {
+    return arr1.filter((x)=>!arr2.includes(x));
+}
+function $88e54ddf303fb709$export$5f7ec48d69707ddd(arr, size) {
+    var result = [];
+    for(var i = 0; i < arr.length; i += size)result.push(arr.slice(i, i + size));
+    return result;
+}
+function $88e54ddf303fb709$export$ee1b3e54f0441b22() {
+    // 将传入的参数转换为数组
+    var args = Array.prototype.slice.call(arguments);
+    // 创建一个空数组用于存储结果
+    var result = [];
+    // 遍历每个参数
+    for(var i = 0; i < args.length; i++){
+        // 如果参数是一个数组，则将其元素添加到result数组中
+        if (Array.isArray(args[i])) for(var j = 0; j < args[i].length; j++)result.push(args[i][j]);
+        else result.push(args[i]);
+    }
+    // 返回结果数组
+    return result;
+} // assign, isFunction, minBy, cloneDeep, debounce, filter, map, forEach, remove, extend, difference, chunk
+
+
+var $be0841b14eb6a97e$exports = {};
+
+$parcel$export($be0841b14eb6a97e$exports, "URLSearchParams", () => $be0841b14eb6a97e$export$522bbcd37da4eada);
+var $9c884761a65e2d1c$exports = {};
+
+$parcel$export($9c884761a65e2d1c$exports, "isNull", () => $9c884761a65e2d1c$export$630801d484da15df);
+$parcel$export($9c884761a65e2d1c$exports, "isUndefined", () => $9c884761a65e2d1c$export$fce6876652108ab);
+$parcel$export($9c884761a65e2d1c$exports, "isBoolean", () => $9c884761a65e2d1c$export$f9ce7b637dfbe238);
+$parcel$export($9c884761a65e2d1c$exports, "isNumber", () => $9c884761a65e2d1c$export$7e4aa119212bc614);
+$parcel$export($9c884761a65e2d1c$exports, "isString", () => $9c884761a65e2d1c$export$844ec244b1367d54);
+$parcel$export($9c884761a65e2d1c$exports, "isSymbol", () => $9c884761a65e2d1c$export$a244864fd9645c7f);
+$parcel$export($9c884761a65e2d1c$exports, "isObject", () => $9c884761a65e2d1c$export$a6cdc56e425d0d0a);
+$parcel$export($9c884761a65e2d1c$exports, "isRegExp", () => $9c884761a65e2d1c$export$49841c62b9eff15);
+$parcel$export($9c884761a65e2d1c$exports, "isArray", () => $9c884761a65e2d1c$export$43bee75e5e14138e);
+$parcel$export($9c884761a65e2d1c$exports, "isFunction", () => $9c884761a65e2d1c$export$f6e2535fb5126e54);
+$parcel$export($9c884761a65e2d1c$exports, "getType", () => $9c884761a65e2d1c$export$e2b5c5db9e2009fd);
+$parcel$export($9c884761a65e2d1c$exports, "isEmpty", () => $9c884761a65e2d1c$export$dd1bc94b04021eeb);
+$parcel$export($9c884761a65e2d1c$exports, "isNaN", () => $9c884761a65e2d1c$export$c9f5652083b8129d);
+$parcel$export($9c884761a65e2d1c$exports, "isEqual", () => $9c884761a65e2d1c$export$248d38f6296296c5);
+const $9c884761a65e2d1c$var$toString = (value)=>Object.prototype.toString.call(value);
+const $9c884761a65e2d1c$export$630801d484da15df = (value)=>$9c884761a65e2d1c$var$toString(value) == "[object Null]";
+const $9c884761a65e2d1c$export$fce6876652108ab = (value)=>value === void 0;
+const $9c884761a65e2d1c$export$f9ce7b637dfbe238 = (value)=>typeof value === "boolean";
+const $9c884761a65e2d1c$export$7e4aa119212bc614 = (value)=>typeof value === "number";
+const $9c884761a65e2d1c$export$844ec244b1367d54 = (value)=>typeof value === "string";
+const $9c884761a65e2d1c$export$a244864fd9645c7f = (value)=>$9c884761a65e2d1c$var$toString(value) == "[object Symbol]";
+const $9c884761a65e2d1c$export$a6cdc56e425d0d0a = (value)=>$9c884761a65e2d1c$var$toString(value) == "[object Object]";
+const $9c884761a65e2d1c$export$49841c62b9eff15 = (value)=>$9c884761a65e2d1c$var$toString(value) == "[object RegExp]";
+const $9c884761a65e2d1c$export$43bee75e5e14138e = (value)=>$9c884761a65e2d1c$var$toString(value) == "[object Array]";
+const $9c884761a65e2d1c$export$f6e2535fb5126e54 = (value)=>$9c884761a65e2d1c$var$toString(value) == "[object Function]";
+const $9c884761a65e2d1c$export$e2b5c5db9e2009fd = (value)=>$9c884761a65e2d1c$var$toString(value).match(/\s([a-z]+)/i)[1].toLocaleLowerCase();
+const $9c884761a65e2d1c$export$dd1bc94b04021eeb = (value)=>{
+    if (value === void 0 || value === null) return true;
+    else if ($9c884761a65e2d1c$export$a6cdc56e425d0d0a(value)) return !Object.keys(value).length;
+    else if ($9c884761a65e2d1c$export$43bee75e5e14138e(value)) return !value.length;
+    else if ($9c884761a65e2d1c$export$844ec244b1367d54(value)) return !value;
+    else return value.toString().length == 0;
+};
+function $9c884761a65e2d1c$export$c9f5652083b8129d(value) {
+    return value !== value;
+}
+function $9c884761a65e2d1c$export$248d38f6296296c5(a, b) {
+    return JSON.stringify(a) === JSON.stringify(b);
+} // isEqual
+
+
+const $be0841b14eb6a97e$export$522bbcd37da4eada = (param)=>{
+    if ((0, $9c884761a65e2d1c$export$a6cdc56e425d0d0a)(param)) return Object.keys(param).map((key)=>`${key}=${encodeURIComponent(JSON.stringify(param[key]))}`).join("&");
+    else if ((0, $9c884761a65e2d1c$export$844ec244b1367d54)(param)) {
+        let maps = {};
+        let _params = param.match(/(([^&?]+)=([^&]*)?)/ig);
+        _params && _params.forEach((res)=>{
+            // ios 兼容有问题
+            // let row = decodeURIComponent(res).split(/(?<!=)=(?!=)/);
+            let row = decodeURIComponent(res).replace(/=/, "|").split("|");
+            try {
+                maps[row[0]] = JSON.parse(decodeURIComponent(row[1]));
+            } catch (err) {
+                try {
+                    maps[row[0]] = decodeURIComponent(row[1]);
+                } //特殊字符情况
+                catch (err) {
+                    try {
+                        maps[row[0]] = JSON.parse(row[1]);
+                    } catch (err) {
+                        maps[row[0]] = row[1];
+                    }
+                }
+            }
+        });
+        return maps;
+    }
+};
+
+
+var $c5fd11b0d0f822dc$exports = {};
+
+$parcel$export($c5fd11b0d0f822dc$exports, "mask", () => $c5fd11b0d0f822dc$export$d99f0801a68bbcf1);
+$parcel$export($c5fd11b0d0f822dc$exports, "uuid", () => $c5fd11b0d0f822dc$export$31b40729666a4ae0);
+$parcel$export($c5fd11b0d0f822dc$exports, "transParams", () => $c5fd11b0d0f822dc$export$13a35dd9077d1a66);
+$parcel$export($c5fd11b0d0f822dc$exports, "toString", () => $c5fd11b0d0f822dc$export$f84e8e69fd4488a5);
+/**
+ * 根据位置,使用 * 遮蔽字符串
+ * @param {string} cc 
+ * @param {number} num1 
+ * @param {number} num2 
+ * @param {string} _mask 
+ * @example shiptools.mask('12398765432',3,7) // => "123****5432"
+ */ const $c5fd11b0d0f822dc$export$d99f0801a68bbcf1 = (cc, num1 = 0, num2 = 0, _mask = "*")=>{
+    let reg = new RegExp(`\^\(\.\{${num1}\}\)\(\.\{${num2 - num1}\}\)\(\.${num2 >= cc.length ? "?" : "+"}\)\$`);
+    return cc.replace(reg, ($0, $1, $2, $3)=>$1 + $2.replace(/./g, _mask) + $3);
+};
+function $c5fd11b0d0f822dc$export$31b40729666a4ae0(len = 8, radix = 16) {
+    const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz".split("");
+    const value = [];
+    let i = 0;
+    radix = radix || chars.length;
+    if (len) // Compact form
+    for(i = 0; i < len; i++)value[i] = chars[0 | Math.random() * radix];
+    else {
+        // rfc4122, version 4 form
+        let r;
+        // rfc4122 requires these characters
+        /* eslint-disable-next-line */ value[8] = value[13] = value[18] = value[23] = "-";
+        value[14] = "4";
+        // Fill in random data.  At i==19 set the high bits of clock sequence as
+        // per rfc4122, sec. 4.1.5
+        for(i = 0; i < 36; i++)if (!value[i]) {
+            r = 0 | Math.random() * 16;
+            value[i] = chars[i === 19 ? r & 0x3 | 0x8 : r];
+        }
+    }
+    return value.join("");
+}
+function $c5fd11b0d0f822dc$export$13a35dd9077d1a66(param) {
+    console.log("enter transparam", param);
+    let paramObj = JSON.parse(param);
+    let paramStr = "";
+    for(const key in paramObj)if (paramObj.hasOwnProperty(key)) {
+        const element = paramObj[key];
+        paramStr = `${paramStr}${paramStr.length > 0 ? "&" : "?"}${key}=${element}`;
+    }
+    console.log("transParams\u8F6C\u6362\u540E\u7684\u53C2\u6570", paramStr);
+    return paramStr;
+}
+function $c5fd11b0d0f822dc$export$f84e8e69fd4488a5(value) {
+    return "" + value;
+} // toString
+
+
+
+const $8d7a97033b427055$var$version = (0, (/*@__PURE__*/$parcel$interopDefault($17e2a7c06afd6377$exports))).version || 0;
+const $8d7a97033b427055$var$shiptools = {
+    ...$a5b5b9aff663c50b$exports,
+    ...$be0841b14eb6a97e$exports,
+    ...$88e54ddf303fb709$exports,
+    ...$c5fd11b0d0f822dc$exports,
+    ...$9c884761a65e2d1c$exports,
+    version: $8d7a97033b427055$var$version
+};
+var $8d7a97033b427055$export$2e2bcd8739ae039 = $8d7a97033b427055$var$shiptools;
+
+

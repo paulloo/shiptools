@@ -4,13 +4,21 @@
   "description": "船票通用javascript通用函数工具包",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "parcel index.html --no-source-maps",
-    "build": "parcel build main.js --out-dir ./ --out-file index.js --global shiptools --no-source-maps --experimental-scope-hoisting"
+    "test": "parcel ./index.html",
+    "start": "parcel index.html",
+    "build": "parcel build main.ts --dist-dir ./ --no-source-maps --no-scope-hoist"
   },
   "author": "paul",
   "license": "ISC",
   "devDependencies": {
+    "@babel/core": "^7.24.6",
+    "@babel/plugin-transform-modules-umd": "^7.24.6",
+    "@babel/preset-env": "^7.24.6",
     "typescript": "^3.9.10"
+  },
+  "dependencies": {
+    "@parcel/config-default": "^2.12.0",
+    "@parcel/optimizer-esbuild": "^2.12.0",
+    "parcel": "^2.12.0"
   }
 }
