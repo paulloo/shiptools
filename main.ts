@@ -16,4 +16,4 @@ const shiptools = {
     version
 }
 
-export default shiptools
+module.exports = shiptools

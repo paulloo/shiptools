@@ -1,7 +1,4 @@
-import shiptools from './index'
-
-console.log("shiptools:", shiptools)
-const  {
+import {
     addNum,
     keys,
     isFunction,
@@ -27,8 +24,7 @@ const  {
     fill,
     difference,
     chunk
-} = shiptools
-
+} from './index'
 
 console.log(addNum(2, 3))
 
