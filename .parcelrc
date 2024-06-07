@@ -1,8 +1,0 @@
-{
-  "extends": "@parcel/config-default",
-  "transformers": {
-  },
-  "optimizers": {
-    "*.js": ["@parcel/optimizer-esbuild"]
-  }
-}
